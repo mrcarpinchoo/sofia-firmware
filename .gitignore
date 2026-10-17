@@ -1,0 +1,14 @@
+# Python virtual environment (PlatformIO lives here)
+.venv/
+
+# PlatformIO: build output and the project-local core (toolchains, frameworks)
+.pio/
+.platformio/
+
+# Files PlatformIO generates for VS Code
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch/
+
+# OS
+.DS_Store
