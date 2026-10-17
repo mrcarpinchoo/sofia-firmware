@@ -99,6 +99,15 @@ Access point "SOFIA-Maestro" up, listening on 192.168.4.1:4210 (UDP)
 - **Upload fails with "permission denied" on `/dev/ttyUSB0` or
   `/dev/ttyACM0`.** Your user isn't in the `dialout` group yet (see
   Setup), or you haven't logged out and back in since adding it.
+- **The serial log repeats `Brownout detector was triggered` and the board
+  keeps resetting.** The board isn't getting enough current from USB. Use
+  another USB port (directly on the computer, not a hub) or a short,
+  good‑quality data cable. The firmware already lowers the Wi‑Fi transmit
+  power (`kTxPowerQuarterDbm` in `include/config.h`) to reduce current
+  spikes.
+- **`A fatal error occurred: MD5 of file does not match data in flash`
+  during upload.** Same cause as the brownout: an unstable USB connection.
+  Fix the power, then upload again.
 - **`python -m comms ping` reports "no response".** Check that the PC is
   connected to `SOFIA-Maestro` (not another network) and that the serial
   log shows the access point is up.

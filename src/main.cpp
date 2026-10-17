@@ -152,7 +152,9 @@ void setup() {
   const IPAddress ip(config::kApIp[0], config::kApIp[1], config::kApIp[2], config::kApIp[3]);
   const IPAddress netmask(config::kApNetmask[0], config::kApNetmask[1], config::kApNetmask[2],
                           config::kApNetmask[3]);
+  Serial.println("Starting Wi-Fi...");
   WiFi.mode(WIFI_AP);
+  WiFi.setTxPower(static_cast<wifi_power_t>(config::kTxPowerQuarterDbm));
   if (!WiFi.softAPConfig(ip, ip, netmask) ||
       !WiFi.softAP(config::kApSsid, config::kApPassword, config::kApChannel)) {
     Serial.println("Failed to start the Wi-Fi access point; restarting in 5 s");
